@@ -122,7 +122,7 @@ re-display the consent form: ([_link 1_](https://groups.google.com/g/google-admo
 [_2_](https://groups.google.com/g/google-admob-ads-sdk/c/zVk9dUVerU8/),
 [_3_](https://groups.google.com/g/google-admob-ads-sdk/c/tERL8SFnhEY/))
 
-Workaround: detect outdated consent
+Workaround: [detect outdated consent](https://github.com/bocops/UMP-workarounds/tree/main/detect_outdated_consent)
 
 ## Should I even be using Google's UMP?
 **tl;dr - NO**
