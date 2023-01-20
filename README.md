@@ -94,6 +94,52 @@ error-prone, and will generally lead to fewer ads being shown to users.
 
 **Google representatives claims that this works as intended. No workarounds exist.** ([_link_](https://groups.google.com/g/google-admob-ads-sdk/c/UcveWmtBm4Q/m/T4avskCzCwAJ))
 
+### Offered alternatives are not a solution
+Claims about potential alternatives are made in different parts of the documentation. These alternatives do not work either,
+making the documentation misleading.
+
+First, there is a section about "Forward[ing] consent to the Google Mobile Ads SDK" in case that only non-personalized
+ads should be requested:
+
+> The default behavior of the Google Mobile Ads SDK is to serve personalized ads. If a user has consented to receive only
+> non-personalized ads, you can configure an AdRequest object to specify that only non-personalized ads should be requested.
+> The following code causes non-personalized ads to be requested regardless of whether or not the user is in the EEA:
+>
+> _(copied from: https://developers.google.com/admob/ump/android/quick-start on 2023-01-20)_
+
+Second, there is a Google AdMob help page offering a third ad-type, "Limited Ads", as a workaround for not having consent:
+
+> We have introduced limited ads (LTD) to give publishers the ability to serve ads in a limited way in the absence of
+> consent for the use of cookies or other local storage, as referenced Google's EU User Consent policy.
+> (You can use this feature under the policy even when end-user consent hasn’t been requested or has been declined;
+> you should assess for yourself your compliance obligations, including required notice and consent, based on local law
+> in your jurisdiction.)
+>
+> _(copied from: https://support.google.com/admob/answer/10105530 on 2023-01-20)_
+
+Legal questions aside, neither of these alternatives will work well while using Google UMP,
+for the same configuration issues already described above:
+
+"Non-personalized" ads (NPA) will only be served if consent is given for at least one purpose, **and** Legitimate Interest
+is selected for four other purposes, **and** Google is selected from the vendor list. If this configuration is achieved
+by the user, NPA will be served independent of any additional flags, so sending them would only lead to personalized ads
+**not** being shown where that would otherwise be possible, including in regions of the world that don't fall under GDPR
+or similar jurisdictions. Even if that is what you want to do, Google UMP offers no way of even detecting
+whether the current configuration is sufficient.
+
+Similarly, "Limited" ads will only be served
+
+> when there is no consent for Purpose 1 but Google is allowed as a vendor to operate
+> based on legitimate interest or consent for purposes 2, 7, 9, and 10.
+>
+> _(copied from: https://support.google.com/admob/answer/10105530 on 2023-01-20)_
+
+Although it is claimed that this feature can be used "even when end-user consent hasn’t been requested or has been declined",
+it is still necessary to use Google UMP or another CMP for some purposes to be set before LTD will be served. In this case,
+too, it would be sensible for the developer to check if sufficient consent exists, but there is no way in Google UMP to do so.
+
+Workaround: [TODO]
+
 ### AdMob error 3.3
 The "IAB Europe Transparency & Consent Framework" explicitly states in its "Chapter II: Policies for CMPs" that:
 
