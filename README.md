@@ -81,7 +81,7 @@ options in a way that prevents all ads from being shown.
 
 **Google UMP offers no functionality to even detect whether the current configuration state would allow certain ads or not.**
 
-Workaround: [TODO]
+Workaround: [detect insufficient consent](https://github.com/bocops/UMP-workarounds/tree/main/detect_insufficient_consent)
 
 ### Easily forgotten configuration states
 While the UMP dialog is presented automatically once per user, developers are supposed to add an option that allows users
@@ -138,7 +138,7 @@ Although it is claimed that this feature can be used "even when end-user consent
 it is still necessary to use Google UMP or another CMP for some purposes to be set before LTD will be served. In this case,
 too, it would be sensible for the developer to check if sufficient consent exists, but there is no way in Google UMP to do so.
 
-Workaround: [TODO]
+Workaround: [detect insufficient consent](https://github.com/bocops/UMP-workarounds/tree/main/detect_insufficient_consent)
 
 ### AdMob error 3.3
 The "IAB Europe Transparency & Consent Framework" explicitly states in its "Chapter II: Policies for CMPs" that:
