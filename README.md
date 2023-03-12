@@ -190,7 +190,9 @@ repository however you like, including in commercial products, but without any w
 
 When doing so, you do **not** need to mention me or this repository in your finished product (e.g. an "About" screen in your app).
 However, if you consider any of the workarounds published here to be useful, feel free to raise awareness about these
-issues by sharing this repository with friends and colleagues.
+issues by sharing this repository with friends and colleagues. If you like, you can always buy me a coffee for the next time I'm working on this:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O0JF7FT)
 
 Quotes marked as such in this and other text documents in this repository are explicitly not meant to fall under the above license.
 I do not claim ownership of any of these quotes. They are reproduced here to allow conversation about the mentioned
