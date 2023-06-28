@@ -61,9 +61,9 @@ private fun detectAdConfiguration(context: Context) : AdConfiguration {
     // stored in positions N-1 of either purpose string:
     val sufficientInterest = (
             (tcConsentString[1] == '1' || tcInterestString[1] == '1') &&
-                    (tcConsentString[1] == '6' || tcInterestString[1] == '6') &&
-                    (tcConsentString[1] == '8' || tcInterestString[1] == '8') &&
-                    (tcConsentString[1] == '9' || tcInterestString[1] == '9')
+                    (tcConsentString[6] == '1' || tcInterestString[6] == '1') &&
+                    (tcConsentString[8] == '1' || tcInterestString[8] == '1') &&
+                    (tcConsentString[9] == '1' || tcInterestString[9] == '1')
             )
     if (!sufficientInterest) {
         return AdConfiguration.NONE
