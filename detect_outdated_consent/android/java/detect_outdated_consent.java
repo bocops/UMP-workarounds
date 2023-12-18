@@ -12,8 +12,11 @@ public void deleteTCStringIfOutdated(Context context) {
     SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
     // get IABTCF string containing creation timestamp;
-    // fall back to string encoding timestamp 0 if nothing is currently stored
-    String tcString = sharedPrefs.getString("IABTCF_TCString", "AAAAAAA");
+    // if the key does not exist, there is no IABTCF string to check; return early
+    String tcString = sharedPrefs.getString("IABTCF_TCString", null);
+    if (tcString == null) {
+        return;
+    }
 
     // base64 alphabet used to store data in IABTCF string
     String base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";

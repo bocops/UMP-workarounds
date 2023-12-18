@@ -12,9 +12,9 @@ private fun deleteTCStringIfOutdated(context: Context) {
     val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
 
     // get IABTCF string containing creation timestamp;
-    // fall back to string encoding timestamp 0 if nothing is currently stored
+    // if the key does not exist, there is no IABTCF string to check; return early
     val tcString = sharedPrefs
-        .getString("IABTCF_TCString", "AAAAAAA") ?: "AAAAAAA"
+        .getString("IABTCF_TCString", null) ?: return
 
     // base64 alphabet used to store data in IABTCF string
     val base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
