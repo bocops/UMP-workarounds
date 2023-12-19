@@ -52,18 +52,18 @@ private fun detectAdConfiguration(context: Context) : AdConfiguration {
     //   1 to show non-personalized ads
     //   no consent to show limited ads
     val maxAdDisplayConfiguration = when {
-        (tcConsentString[0] == '1' && tcConsentString[2] == '1' && tcConsentString[3] == '1') -> AdConfiguration.ALL
-        (tcConsentString[0] == '1') -> AdConfiguration.NONPERSONALIZED
+        (bitStringTrue(tcConsentString, 0) && bitStringTrue(tcConsentString, 2) && bitStringTrue(tcConsentString, 3)) -> AdConfiguration.ALL
+        (bitStringTrue(tcConsentString, 0)) -> AdConfiguration.NONPERSONALIZED
         else -> AdConfiguration.LIMITED
     }
 
     // in any case we need at least legitimate interest for purposes N = 2, 7, 9 and 10,
     // stored in positions N-1 of either purpose string:
     val sufficientInterest = (
-            (tcConsentString[1] == '1' || tcInterestString[1] == '1') &&
-                    (tcConsentString[6] == '1' || tcInterestString[6] == '1') &&
-                    (tcConsentString[8] == '1' || tcInterestString[8] == '1') &&
-                    (tcConsentString[9] == '1' || tcInterestString[9] == '1')
+            (bitStringTrue(tcConsentString, 1) || bitStringTrue(tcInterestString, 1)) &&
+                    (bitStringTrue(tcConsentString, 6) || bitStringTrue(tcInterestString, 6)) &&
+                    (bitStringTrue(tcConsentString, 8) || bitStringTrue(tcInterestString, 8)) &&
+                    (bitStringTrue(tcConsentString, 9) || bitStringTrue(tcInterestString, 9))
             )
     if (!sufficientInterest) {
         return AdConfiguration.NONE
@@ -90,5 +90,9 @@ private fun detectAdConfiguration(context: Context) : AdConfiguration {
         maxAdDisplayConfiguration
     } else {
         return AdConfiguration.UNCLEAR
+    }
+
+    private fun bitStringTrue(bitString: String, index: Int): Boolean {
+        return bitString.getOrNull(index) == '1'
     }
 }
