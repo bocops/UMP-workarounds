@@ -7,7 +7,7 @@
  * 2 - REQUIRED
  * 3 - OBTAINED
  */
-private fun getPreviousConsentStatus(context: Context) {
+private fun getPreviousConsentStatus(context: Context) : Int {
     val sp = context.getSharedPreferences("__GOOGLE_FUNDING_CHOICE_SDK_INTERNAL__", Context.MODE_PRIVATE)
     return sp.getInt("consent_status", 0)
 }
