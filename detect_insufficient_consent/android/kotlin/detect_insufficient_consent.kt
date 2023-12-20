@@ -91,8 +91,8 @@ private fun detectAdConfiguration(context: Context) : AdConfiguration {
     } else {
         return AdConfiguration.UNCLEAR
     }
+}
 
-    private fun bitStringTrue(bitString: String, index: Int): Boolean {
-        return bitString.getOrNull(index) == '1'
-    }
+private fun bitStringTrue(bitString: String, index: Int): Boolean {
+    return bitString.getOrNull(index) == '1'
 }
