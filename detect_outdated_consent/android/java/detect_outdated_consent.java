@@ -19,7 +19,7 @@ public void deleteTCStringIfOutdated(Context context) {
     }
 
     // base64 alphabet used to store data in IABTCF string
-    String base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    String base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 
     // date is stored in digits 1..7 of the IABTCF string
     String dateSubstring = tcString.substring(1,7);
