@@ -17,7 +17,7 @@ private fun deleteTCStringIfOutdated(context: Context) {
         .getString("IABTCF_TCString", null) ?: return
 
     // base64 alphabet used to store data in IABTCF string
-    val base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    val base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
 
     // date is stored in digits 1..7 of the IABTCF string
     val dateSubstring = tcString.subSequence(1,7).toString()
